@@ -32,6 +32,7 @@ const StreamPrices = (call) => {
         clearInterval(interval);
     });
 };
+
 function main() {
     const server = new grpc.Server();
     server.addService(cryptoProto.CryptoService.service, {
