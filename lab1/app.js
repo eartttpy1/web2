@@ -98,7 +98,7 @@ app.put('/books/:id', (req, res) => {
         message: "Update book complete",
         data: books[index]
     });
-});a
+});
 
 app.delete('/books/:id', (req, res) => {
     let id = Number(req.params.id);

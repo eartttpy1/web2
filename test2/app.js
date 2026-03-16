@@ -9,7 +9,7 @@ let books = [
   { id: 2, name: "Design Patterns", price: 650 }
 ];
 
-counter = 3;
+let counter = 3;
 
 app.get('/books', (req,res) =>{
     let result = [...books];
