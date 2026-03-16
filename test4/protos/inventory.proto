@@ -1,0 +1,16 @@
+syntax = "proto3";
+package inventory;
+
+service PriceService {
+  // Server Streaming: ส่งข้อมูลราคาไหลกลับมาต่อเนื่อง
+  rpc StreamBookPrice (BookRequest) returns (stream PriceUpdate) {}
+}
+
+message BookRequest {
+  int32 bookId = 1;
+}
+
+message PriceUpdate {
+  float price = 1;
+  string timestamp = 2;
+}

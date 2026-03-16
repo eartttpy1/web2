@@ -10,26 +10,17 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite" // ใช้ SQLite เพราะง่ายที่สุดสำหรับการทดลองรัน ไม่ต้องลง DB เพิ่ม
-  url = "file:./dev.db"
-}
-
-// One-to-Many: Author (1) -> Book (N)
-model Author {
-  id    Int     @id @default(autoincrement())
-  name  String
-  books Book[]  // ฝั่ง 'Many' จะเป็น Array
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model Book {
-  id       Int      @id @default(autoincrement())
-  title    String
-  author   Author   @relation(fields: [authorId], references: [id])
-  authorId Int      // Foreign Key
-  categories Category[] // Many-to-Many แบบ Implicit
+  id         Int        @id @default(autoincrement())
+  title      String
+  price      Float
+  categories Category[] // Implicit Many-to-Many
 }
 
-// Many-to-Many: Book (N) <-> Category (M)
 model Category {
   id    Int    @id @default(autoincrement())
   name  String @unique
